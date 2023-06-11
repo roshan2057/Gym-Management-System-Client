@@ -1,0 +1,13 @@
+.form form label{
+}
+form input{
+    width:9rem;
+    margin: 10px 0px;
+
+}
+form button{
+    
+    display: block;
+    margin:auto;
+    align-items: center;
+}

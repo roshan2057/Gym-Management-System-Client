@@ -1,0 +1,12 @@
+/* .sidebar{
+    width: 400px;
+} */
+.list-group a:hover{
+    background-color: blue;
+    color:white;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

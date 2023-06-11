@@ -1,0 +1,34 @@
+.profile form, .bmi form, .password form{
+    display: flex;
+}
+.profile form input{
+    width: 20rem;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15rem;
+}
+.left label{
+    margin:1rem 10px;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+}
+.right input{
+    margin-top: 18px;
+}
+
+.bmi{
+    margin-left: 10rem;
+}
+.bmi .left{
+    margin-right: 5rem;
+
+}
+
+.password .left{
+    margin-right: 5rem;
+
+}
