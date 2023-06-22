@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './profile.css'
 import axios from 'axios'
-import URL from './Api'
+import URL from '../../Api'
 import Cookies from 'js-cookie'
 import Profilebmi from './Profilebmi'
 import Profiledetails from './Profiledetails'

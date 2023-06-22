@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import React from 'react'
-import URL from './Api';
+import URL from '../../Api';
 
 function Profiledetails(props) {
     const user = props.data;

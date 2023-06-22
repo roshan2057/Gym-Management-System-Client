@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './sidebar.css'
 import { Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
-import Auth from './Auth'
+import Auth from '../Auth'
 
 
 function Slidebar() {

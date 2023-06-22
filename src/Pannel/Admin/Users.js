@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import 'bootstrap/js/dist/modal'
 import axios from 'axios';
-import URL from './Api';
+import URL from '../../Api';
 import Cookies from 'js-cookie';
 function Users() {
     const [members, setMembers]=useState([]);
+    const [search, setSearch]=useState('');
 
 
     useEffect(()=>{
@@ -78,13 +79,15 @@ function Users() {
   return (
     <div>
             <h1 className='text-white fs-4'>List of Members</h1> 
-
+<form className='text-right'>
+  <input className="bg-white text-center rounded-4 mb-0" placeholder='Search' type='text' onChange={(event)=>{setSearch(event.target.value)}}/>
+</form>
         <table className="table bg-white rounded mt-5">
   <thead>
     <tr>
       <th scope="col">S.N</th>
       <th scope="col">Name</th>
-      <th scope="col">Phome</th>
+      <th scope="col">Phone</th>
       <th scope="col">Address</th>
       <th colSpan="2" scope="col" className='text-center'>Action</th>
       <th>Send mail</th>
@@ -93,7 +96,7 @@ function Users() {
   <tbody>
 
 {
-  members.map((item,  index)=>(
+  members.filter(item=>item.name.toLowerCase().includes(search)).map((item,  index)=>(
     <tr key={index}>
     <th scope="row">{index+1}</th>
     <td>{item.name}</td>

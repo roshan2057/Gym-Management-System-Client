@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import KhaltiCheckout from 'khalti-checkout-web'
 import axios from 'axios';
-import URL from './Api';
+import URL from '../../Api';
 import Cookies from 'js-cookie';
 
 function Khalti(props) {

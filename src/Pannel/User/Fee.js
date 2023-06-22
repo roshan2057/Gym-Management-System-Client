@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Khalti from './Khalti'
 import axios from 'axios';
-import URL from './Api';
-import Userpackage from './Userpackage';
+import URL from '../../Api';
+import Userpackage from './Userpackage'
 import Feedetails from './Feedetails';
 import './modal.css';
 

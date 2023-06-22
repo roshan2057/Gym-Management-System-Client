@@ -14,7 +14,7 @@ function Nav({Toggle}) {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                
                 <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                    <a className="nav-link dropdown-toggle" href="/dropdown" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                     <div className="dropdown-menu" aria-labelledby="dropdownId">
                         <Link className="dropdown-item" to={'/profile'}>Profile</Link>
                         <Link className="dropdown-item" to={'/contact'}>Contact</Link>

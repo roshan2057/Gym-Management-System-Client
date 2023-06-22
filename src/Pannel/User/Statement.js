@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import URL from './Api'
+import URL from '../../Api'
 import Cookies from 'js-cookie'
 
 function Statement() {

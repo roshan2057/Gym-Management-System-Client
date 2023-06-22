@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, Route, Routes } from "react-router-dom"
 import Header from "./Header"
+import Signin from "./Signin"
 
 function Landingpage() {
 
 
     return (
         <>
-
+ <Routes>
+    <Route path='/login' element={<Signin/>}></Route>
+</Routes>
 
 
 
