@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import URL from '../../Api';
-import axios from 'axios';
+// import URL from '../../Api';
+// import axios from 'axios';
 import './package.css'
 
 
 function Packageedit() {
-    const {id} = useParams();
+    // const {id} = useParams();
    
     // useEffect(()=>{
     //     axios.get(`${URL}/admin/package/${id}`

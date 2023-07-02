@@ -34,6 +34,7 @@ setData(pdata);
    console.log(id)
    setSelectedPackId(id);
     setShowModal(true);
+    console.log(selectedPackId)
   };
 
   return (

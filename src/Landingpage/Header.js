@@ -30,10 +30,10 @@ function Header() {
                                     <i className="fa fa-search"></i>
                                 </div>
                                 <div className="to-social">
-                                    <a href=""><i className="fa fa-facebook"></i></a>
-                                    <a href=""><i className="fa fa-twitter"></i></a>
-                                    <a href=""><i className="fa fa-youtube-play"></i></a>
-                                    <a href=""><i className="fa fa-instagram"></i></a>
+                                    <a href="www.facebook.com"><i className="fa fa-facebook"></i></a>
+                                    <a href="www.twitter.com"><i className="fa fa-twitter"></i></a>
+                                    <a href="www.youtube.com"><i className="fa fa-youtube-play"></i></a>
+                                    <a href="www.instagram.com"><i className="fa fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
