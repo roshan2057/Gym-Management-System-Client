@@ -1,19 +1,10 @@
-import { Link, Route, Routes } from "react-router-dom"
-import Header from "./Header"
-import Signin from "./Signin"
+import { Link } from "react-router-dom"
 
 function Landingpage() {
 
 
     return (
         <>
- <Routes>
-    <Route path='/login' element={<Signin/>}></Route>
-</Routes>
-
-
-
-
             <div className="offcanvas-menu-overlay"></div>
             <div className="offcanvas-menu-wrapper">
                 <div className="canvas-close">
@@ -34,14 +25,12 @@ function Landingpage() {
                 </nav>
                 <div id="mobile-menu-wrap"></div>
                 <div className="canvas-social">
-                    <a href=""><i className="fa fa-facebook"></i></a>
-                    <a href=""><i className="fa fa-twitter"></i></a>
-                    <a href=""><i className="fa fa-youtube-play"></i></a>
-                    <a href=""><i className="fa fa-instagram"></i></a>
+                    <a href="www.facebook.com"><i className="fa fa-facebook"></i></a>
+                    <a href="www.twitter.com"><i className="fa fa-twitter"></i></a>
+                    <a href="www.youtube.com"><i className="fa fa-youtube-play"></i></a>
+                    <a href="www.instagram.com"><i className="fa fa-instagram"></i></a>
                 </div>
             </div>
-
-       <Header/>
 
             <section className="hero-section bg-black">
                 <div className="hs-slider ">
@@ -52,7 +41,7 @@ function Landingpage() {
                                     <div className="hi-text color-black">
                                         <span>Shape your body</span>
                                         <h1>Be <strong>strong</strong> traning hard</h1>
-                                        <a href="" className="primary-btn">Get info</a>
+                                        <a href="/" className="primary-btn">Get info</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +104,7 @@ function Landingpage() {
                             <div className="bs-text">
                                 <h2>registration now to get more deals</h2>
                                 <div className="bt-tips">Where health, beauty and fitness meet.</div>
-                                <a href="" className="primary-btn  btn-normal">Appointment</a>
+                                <a href="/" className="primary-btn  btn-normal">Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -148,8 +137,8 @@ function Landingpage() {
                                     <li>Month to mouth</li>
                                     <li>No time restriction</li>
                                 </ul>
-                                <a href="" className="primary-btn pricing-btn">Enroll now</a>
-                                <a href="" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
+                                <a href="/" className="primary-btn pricing-btn">Enroll now</a>
+                                <a href="/" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-8">
@@ -167,8 +156,8 @@ function Landingpage() {
                                     <li>Month to mouth</li>
                                     <li>No time restriction</li>
                                 </ul>
-                                <a href="" className="primary-btn pricing-btn">Enroll now</a>
-                                <a href="" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
+                                <a href="/" className="primary-btn pricing-btn">Enroll now</a>
+                                <a href="/" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-8">
@@ -186,8 +175,8 @@ function Landingpage() {
                                     <li>Month to mouth</li>
                                     <li>No time restriction</li>
                                 </ul>
-                                <a href="" className="primary-btn pricing-btn">Enroll now</a>
-                                <a href="" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
+                                <a href="/" className="primary-btn pricing-btn">Enroll now</a>
+                                <a href="/" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
                             </div>
                         </div>
                     </div>
@@ -228,16 +217,16 @@ function Landingpage() {
                         <div className="col-lg-4">
                             <div className="fs-about">
                                 <div className="fa-logo">
-                                    <a href=""><img src="img/logo.png" alt="" /></a>
+                                    <a href="/"><img src="img/logo.png" alt="" /></a>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                                     labore dolore magna aliqua endisse ultrices gravida lorem.</p>
                                 <div className="fa-social">
-                                    <a href=""><i className="fa fa-facebook"></i></a>
-                                    <a href=""><i className="fa fa-twitter"></i></a>
-                                    <a href=""><i className="fa fa-youtube-play"></i></a>
-                                    <a href=""><i className="fa fa-instagram"></i></a>
-                                    <a href=""><i className="fa  fa-envelope-o"></i></a>
+                                    <a href="www.facebook.com"><i className="fa fa-facebook"></i></a>
+                                    <a href="www.twitter.com"><i className="fa fa-twitter"></i></a>
+                                    <a href="www.facebook.com"><i className="fa fa-youtube-play"></i></a>
+                                    <a href="www.instagram.com"><i className="fa fa-instagram"></i></a>
+                                    <a href="/"><i className="fa  fa-envelope-o"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -245,10 +234,11 @@ function Landingpage() {
                             <div className="fs-widget">
                                 <h4>Useful links</h4>
                                 <ul>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">Blog</a></li>
-                                    <li><a href="">classNamees</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><a href="/">About</a></li>
+                                    <li><a href="/">Blog</a></li>
+                                    <li><a href="/">classNamees</a></li>
+                                    <li><a href="/">Contact</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -256,10 +246,10 @@ function Landingpage() {
                             <div className="fs-widget">
                                 <h4>Support</h4>
                                 <ul>
-                                    <li><a href="">Login</a></li>
-                                    <li><a href="">My account</a></li>
-                                    <li><a href="">Subscribe</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><Link to={'/login'}>Login</Link></li>
+                                    <li><a href="/">My account</a></li>
+                                    <li><a href="/">Subscribe</a></li>
+                                    <li><a href="/">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -267,14 +257,14 @@ function Landingpage() {
                             <div className="fs-widget">
                                 <h4>Tips & Guides</h4>
                                 <div className="fw-recent">
-                                    <h6><a href="">Physical fitness may help prevent depression, anxiety</a></h6>
+                                    <h6><a href="/">Physical fitness may help prevent depression, anxiety</a></h6>
                                     <ul>
                                         <li>3 min read</li>
                                         <li>20 Comment</li>
                                     </ul>
                                 </div>
                                 <div className="fw-recent">
-                                    <h6><a href="">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
+                                    <h6><a href="/">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
                                     <ul>
                                         <li>3 min read</li>
                                         <li>20 Comment</li>
@@ -287,7 +277,7 @@ function Landingpage() {
                         <div className="col-lg-12 text-center">
                             <div className="copyright-text">
                                 <p>
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="">Colorlib</a>
                                 </p>
                             </div>
                         </div>
