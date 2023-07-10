@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import 'bootstrap/js/dist/modal'
 import axios from 'axios';
-import URL from '../../Api';
 import Cookies from 'js-cookie';
 function Users() {
     const [members, setMembers]=useState([]);
@@ -9,7 +8,7 @@ function Users() {
 
 
     useEffect(()=>{
-      axios.get(`${URL}/admin/members`)
+      axios.get(`${process.env.REACT_APP_API}/admin/members`)
       .then(res =>{
         console.log(res.data.data);
         const pdata=res.data.data;
@@ -29,7 +28,7 @@ function Users() {
           message:event.target.message.value
         }
         
-        axios.post(`${URL}/gmail`,data,{
+        axios.post(`${process.env.REACT_APP_API}/gmail`,data,{
           headers:{
             'auth':Cookies.get('token')
           }
@@ -63,7 +62,7 @@ function Users() {
   }
 
   const remove = (id) => {
-   axios.delete(`${URL}/admin/deletemember/${id}`,{
+   axios.delete(`${process.env.REACT_APP_API}/admin/deletemember/${id}`,{
     headers:{
       'auth':Cookies.get('token')
     }

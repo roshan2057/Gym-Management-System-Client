@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import URL from '../../Api'
 import Cookies from 'js-cookie'
 
 function Statement() {
@@ -8,7 +7,7 @@ function Statement() {
   const [total, setTotal]=useState(0);
   
   useEffect(()=>{
-axios.get(`${URL}/user/statement`,{
+axios.get(`${process.env.REACT_APP_API}/user/statement`,{
   headers:{
     'auth':Cookies.get('token')
   }

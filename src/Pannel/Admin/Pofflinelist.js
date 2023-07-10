@@ -27,7 +27,9 @@ function Pofflinelist(props) {
       <td className='text-center'>{data.num_months}</td>
       <td>Rs.{data.price}</td>
       <td className='text-danger'>Offline</td>
-      <td><Link to={`/package/${data.pac_id}`}>Edit</Link></td>
+      <td><Link to={{
+          pathname: `/package/${JSON.stringify(data)}`
+        }}>Edit</Link></td>
     </tr>
       ))
     }

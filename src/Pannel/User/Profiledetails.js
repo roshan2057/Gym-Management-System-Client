@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import React from 'react'
-import URL from '../../Api';
 
 function Profiledetails(props) {
     const user = props.data;
@@ -14,7 +13,7 @@ function Profiledetails(props) {
           "email": event.target.email.value,
           "address": event.target.address.value,
         }
-        axios.put(`${URL}/user/profile`,user,{
+        axios.put(`${process.env.REACT_APP_API}/user/profile`,user,{
           headers:{
             'auth': Cookies.get('token')
           }

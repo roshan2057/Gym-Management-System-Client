@@ -1,13 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import URL from '../../Api'
 import Cookies from 'js-cookie'
 
 const Homebmi = () => {
 const [user, setUser]= useState({});
 const [remarks, setRemarks] = useState('');
     useEffect(()=>{
-axios.get(`${URL}/user/bmi`,{
+axios.get(`${process.env.REACT_APP_API}/user/bmi`,{
     headers:{
         'auth':Cookies.get('token')
     }

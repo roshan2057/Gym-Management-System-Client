@@ -18,6 +18,9 @@ import Ustatement from './Pannel/User/Ustatement'
 import { AdminElement } from './Roles'
 import Packageedit from './Pannel/Admin/Packageedit'
 import Header from './Landingpage/Header'
+import Adminsignin from './Landingpage/Adminsignin'
+import CODlist from './Pannel/Admin/CODlist'
+import Khaltilist from './Pannel/Admin/Khaltilist'
 
 const login = Auth();
 
@@ -49,6 +52,8 @@ function App() {
                             <Route path='/profile' element={<Profile />}></Route>
                             <Route path='/user' element={<AdminElement><Users /></AdminElement>}></Route>
                             <Route path='/package' element={<AdminElement><Package /></AdminElement>}></Route>
+                            <Route path='/cod' element={<AdminElement><CODlist /></AdminElement>}></Route>
+                            <Route path='/khalti' element={<AdminElement><Khaltilist /></AdminElement>}></Route>
 
                             <Route path='/statement' element={<Statement />}></Route>
                             <Route path='/statement/:id' element={<Ustatement />}></Route>
@@ -68,6 +73,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Landingpage />}></Route>
                     <Route path='/login' element={<Signin />}></Route>
+                    <Route path='/admin/login' element={<Adminsignin/>}></Route>
                 </Routes>
             </>
         )

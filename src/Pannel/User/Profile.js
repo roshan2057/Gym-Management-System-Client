@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './profile.css'
 import axios from 'axios'
-import URL from '../../Api'
 import Cookies from 'js-cookie'
 import Profilebmi from './Profilebmi'
 import Profiledetails from './Profiledetails'
@@ -11,7 +10,7 @@ function Profile() {
   const [user, setUser] = useState('');
 
   useEffect(()=>{
-    axios.get(`${URL}/user/profile`,{
+    axios.get(`${process.env.REACT_APP_API}/user/profile`,{
       headers:{
         'auth': Cookies.get('token')
       }
@@ -30,12 +29,17 @@ setUser(res.data.data[0]);
 
   const form = document.getElementById('changepassword');
     event.preventDefault();
+    
     const user ={
      
       "password": event.target.password.value,
       "newpassword": event.target.newpassword.value,
+      "cpassword":event.target.cpassword.value,
     }
-    axios.put(`${URL}/user/changepassword`,user,{
+    if(user.newpassword !== user.cpassword){
+      return alert("Password not matched");
+    }
+    axios.put(`${process.env.REACT_APP_API}/user/changepassword`,user,{
       headers:{
         'auth': Cookies.get('token')
       }
@@ -70,7 +74,7 @@ setUser(res.data.data[0]);
             <div className='right'> 
             <input type='password' name='password'/>
             <input type='password' name='newpassword'/>
-            <input type='password'/>
+            <input type='password' name='cpassword' />
             <input type='submit' value={'Change'}/>
             </div>   
 </form>

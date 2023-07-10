@@ -1,30 +1,29 @@
 import React from 'react'
 import './signin.css';
 import Cookies from 'js-cookie';
-import Signup from './Signup';
 import axios from 'axios';
 
-function Signin() {
+function Adminsignin() {
 
 
   const login = (event) => {
     event.preventDefault();
-    const phone = event.target.phone.value;
+    const username = event.target.username.value;
     const password = event.target.password.value;
-    if (!phone || !password === null) {
+    if (!username || !password === null) {
       return alert("Field required");
     }
 
-    axios.post(`${process.env.REACT_APP_API}/user/login`, {
-      phone,
+    axios.post(`${process.env.REACT_APP_API}/admin/login`, {
+      username,
       password
     }).then(res => {
       console.log(res.data)
       if (res.data.token) {
         Cookies.set('token', res.data.token)
         Cookies.set('type', res.data.user)
-        
-          window.location.href = '/home';
+       
+          window.location.href = '/';
       }
       else {
         alert("invalid");
@@ -42,16 +41,15 @@ function Signin() {
       <div className='container-fluid h-100 position-absolute' style={{ backgroundImage: 'url(img/hero/hero-2.jpg)' }}>
         <div className='box'>
           <div className='mx-5'>
-            <h1 className='text-white text-center'>Sign In</h1>
+            <h1 className='text-white text-center'>Admin Sign In</h1>
             <form className='bg-white p-3 w-auto rounded' onSubmit={login}>
-              <label className='d-block'>Phone Number</label>
-              <input className='d-block' type='text' name='phone' />
+              <label className='d-block'>Username</label>
+              <input className='d-block' type='text' name='username' />
               <label className='d-block'>Password</label>
               <input className='d-block' type='text' name='password' />
               <input className='d-block' type='submit' value='Sign In' />
             </form>
           </div>
-          <Signup />
         </div>
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
@@ -94,4 +92,4 @@ function Signin() {
   )
 }
 
-export default Signin
+export default Adminsignin

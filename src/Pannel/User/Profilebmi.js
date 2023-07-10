@@ -2,7 +2,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import React from 'react'
-import URL from '../../Api';
 
 function Profilebmi(props) {
   const user = props.data;
@@ -20,7 +19,7 @@ user.bmi=bmi;
 
 
 
-    axios.put(`${URL}/user/bmi`,user,{
+    axios.put(`${process.env.REACT_APP_API}/user/bmi`,user,{
       headers:{
         'auth': Cookies.get('token')
       }

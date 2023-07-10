@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 
 function Landingpage() {
 
-
     return (
         <>
             <div className="offcanvas-menu-overlay"></div>

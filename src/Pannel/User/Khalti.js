@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import KhaltiCheckout from 'khalti-checkout-web'
 import axios from 'axios';
-import URL from '../../Api';
 import Cookies from 'js-cookie';
 
 function Khalti(props) {
-  const [packid, setPackid]=useState(0)
+  const [packid, setPackid]=useState(0);
 
   const packdata = props.pack;
   console.log(packdata);
@@ -14,14 +13,14 @@ function Khalti(props) {
         // replace this key with yours
         "publicKey": "test_public_key_99697f8fd7fc41e8b922cb5f84cf4e82",
         // "productIdentity": userid,
-        "productIdentity": "22",
-        "productName": packid,
+        "productIdentity": packid,
+        "productName": 'khalit',
         "productUrl": "http://gameofthrones.com/buy/Dragons",
         "eventHandler": {
           onSuccess(payload) {
             // hit merchant api for initiating verfication
             console.log(payload);            
-          axios.post(`${URL}/user/payment/khalti`,payload,{
+          axios.post(`${process.env.REACT_APP_API}/user/payment/khalti`,payload,{
              headers:{
               'auth':Cookies.get('token')
                     }
@@ -63,7 +62,7 @@ function Khalti(props) {
   const data={
     packid: packid
   };
-   axios.post(`${URL}/user/payment/cod`,data,{    
+   axios.post(`${process.env.REACT_APP_API}/user/payment/cod`,data,{    
     headers:{
       'auth':Cookies.get('token')
     }

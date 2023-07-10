@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React from 'react'
-import URL from './Api';
 
 function Signup() {
 
@@ -39,7 +38,7 @@ return alert("all field are required")
   }
  const register =(data)=>{
   const form = document.getElementById('register');
-  axios.post(`${URL}/user/register`,{
+  axios.post(`${process.env.REACT_APP_API}/user/register`,{
     data
   }).then(res=>{
     console.log(res);
