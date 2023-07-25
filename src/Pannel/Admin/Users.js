@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import 'bootstrap/js/dist/modal'
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 function Users() {
     const [members, setMembers]=useState([]);
     const [search, setSearch]=useState('');
@@ -70,11 +71,13 @@ function Users() {
     console.log(res);
     if(res.status === 200){
       alert(res.data.data);
+      window.location.reload();
     }
    }).catch(error=>{
     console.log(error)
    })
   };
+
   return (
     <div>
             <h1 className='text-white fs-4'>List of Members</h1> 
@@ -86,9 +89,11 @@ function Users() {
     <tr>
       <th scope="col">S.N</th>
       <th scope="col">Name</th>
+      <th scope="col">Membership id</th>
       <th scope="col">Phone</th>
       <th scope="col">Address</th>
-      <th colSpan="2" scope="col" className='text-center'>Action</th>
+      <th scope="col" className='text-center'>Statement</th>
+      <th scope="col" className='text-center'>Action</th>
       <th>Send mail</th>
     </tr>
   </thead>
@@ -99,9 +104,12 @@ function Users() {
     <tr key={index}>
     <th scope="row">{index+1}</th>
     <td>{item.name}</td>
+    <td>{item.id}</td>
     <td>{item.phone}</td>
     <td>{item.address}</td>
-    <td className='text-center'>Payment</td>
+    <td className='text-center'><Link to={{
+          pathname: `/user/${item.name}/${item.id}/`
+        }}>View</Link></td>
     <td className='text-center'><button className='btn btn-danger' onClick={() => remove(item.id)}>Delete</button></td>
     <td><button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever={item.email}>Send Mail</button>
 </td>

@@ -4,7 +4,7 @@ import {useParams } from 'react-router-dom';
 // import './package.css'
 
 
-function Packageedit(props) {
+function Packageedit() {
     const { id } = useParams();
 
     const jsonData = decodeURIComponent(id);

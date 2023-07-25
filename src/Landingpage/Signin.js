@@ -3,6 +3,7 @@ import './signin.css';
 import Cookies from 'js-cookie';
 import Signup from './Signup';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Signin() {
 
@@ -27,12 +28,12 @@ function Signin() {
           window.location.href = '/home';
       }
       else {
-        alert("invalid");
+        alert("no data");
       }
 
     }).catch(error => {
       console.log(error.response)
-      alert("Invalid");
+      alert((error.response.data.data));
     })
 
   }
@@ -47,41 +48,18 @@ function Signin() {
               <label className='d-block'>Phone Number</label>
               <input className='d-block' type='text' name='phone' />
               <label className='d-block'>Password</label>
-              <input className='d-block' type='text' name='password' />
+              <input className='d-block' type='password' name='password' />
               <input className='d-block' type='submit' value='Sign In' />
+              <div className='a'>
+              <Link to='/forgetpassword'>forget password</Link>
+
+              </div>
+
             </form>
           </div>
           <Signup />
         </div>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">New message</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="modal-body">
-                <form >
-                  <div className="mb-3">
-                    <label htmlFor="recipient-name" className="col-form-label">Recipient:</label>
-                    <input type="text" className="form-control" id="recipient-name" name='email' />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="message-text" className="col-form-label">Message:</label>
-                    <textarea className="form-control" id="message-text" name='message'></textarea>
-                  </div>
-                  <div className='d-flex justify-content-end'>
-                    <button type="submit" className="btn btn-primary" id='myButton' >Send message</button>
-
-                  </div>
-
-                </form>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
+       
 
 
 

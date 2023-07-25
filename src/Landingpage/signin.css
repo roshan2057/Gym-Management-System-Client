@@ -4,3 +4,15 @@
     position: relative;
     top:150px;
 }
+
+form a{
+    text-decoration: underline;
+    color: blue;
+}
+form a:hover{
+    color: white;
+}
+form .a{
+    text-align: center;
+
+}

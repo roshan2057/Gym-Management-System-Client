@@ -33,6 +33,14 @@ axios.get(`${process.env.REACT_APP_API}/user/fee`,{
             (rem>0)?setAlert(rem+" days remaining to expire"):
             setAlert("Expired!! Please Renew from below")
           }, [bill]);
+
+          const getAlertClass = () => {
+            const dateexpire = new Date(bill.expire_date);
+    const today = new Date();
+    const diff = dateexpire.getTime() - today.getTime();
+    const rem = Math.floor(diff / (1000 * 60 * 60 * 24));
+            return alert.includes("Expired") ? "bg-danger" : rem > 5 ? "bg-success" : "bg-danger";
+          };
         
         
   return (
@@ -69,7 +77,7 @@ axios.get(`${process.env.REACT_APP_API}/user/fee`,{
               </tbody>
             </table>
             <div className='text-center'>
-            <span className='d-block bg-danger text-white p-2 rounded' id='rem' >{alert}</span>
+            <span className={`d-block ${getAlertClass()} text-white p-2 rounded`} id='rem'>{alert}</span>
 
             </div>
   

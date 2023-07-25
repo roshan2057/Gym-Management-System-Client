@@ -26,15 +26,35 @@ function CODlist() {
     const calculateTotal = (statement) => {
         let totalAmount = 0;
         statement.forEach(item => {
-            totalAmount += item.amount;
+            if(item.status !== 'Pending'){
+                totalAmount += item.amount;
+
+            }
         });
         setTotal(totalAmount);
     };
 
+    const accept=(id)=>{
+axios.get(`${process.env.REACT_APP_API}/admin/bill/cod/${id}`,{
+    headers:{
+        'auth':Cookies.get('token')
+    }
+}).then(res=>{
+    console.log(res)
+    window.location.reload();
+
+}).catch(error=>{
+    console.log(error)
+})
+    }
+
+const decline=(id)=>{
+console.log("decline"+id)
+}
     return (
         <div>
 
-            <h2 className='text-white fs-4'>Cash On Delivery</h2>
+            <h2 className='text-white fs-4'>Cash</h2>
 
             <table className="table table-striped bg-white rounded mt-5">
 
@@ -58,12 +78,12 @@ function CODlist() {
                             <td>{item.expire_date}</td>
                             <td>Rs.{item.amount}</td>
                             {item.status === 'Pending' ? (<>
-                                <td className="text-center"><button>Accept</button> <button>Decline</button></td>
+                                <td className="text-center"><button onClick={()=>{accept(item.bid)}}>Accept</button> <button onClick={()=>{decline(item.bid)}}>Decline</button></td>
                             </>
 
 
                             ) : (
-                                <td className="text-center">Payemt Done</td>
+                                <td className="text-center">Payment Done</td>
                             )}
                         </tr>
                         )
@@ -75,7 +95,7 @@ function CODlist() {
                         <td colSpan='4'></td>
                     </tr>
                     <tr>
-                        <td colSpan='3' className='text-center'>Total:</td>
+                        <td colSpan='4' className='text-center'>Total:</td>
                         <td>Rs.{total}</td>
                     </tr>
 

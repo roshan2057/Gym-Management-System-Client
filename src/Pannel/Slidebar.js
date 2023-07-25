@@ -50,15 +50,22 @@ function Slidebar() {
             </Link>
             {isPaymentDropdownOpen && (
               <div className='list-group-item py-2 d-block'>
+
+                {/* <Link className='list-group-item py-2' to="/addbill">
+                  <i className='bi bi-wallet fs-5 me-2'></i>
+                  <span className='fs-5'>Add Manually</span>
+                </Link> */}
+
                 <Link className='list-group-item py-2' to="/cod">
                   <i className='bi bi-cash fs-5 me-2'></i>
-                  <span className='fs-5'>COD</span>
+                  <span className='fs-5'>Cash</span>
                 </Link>
 
                 <Link className='list-group-item py-2' to="/khalti">
                   <i className='bi bi-wallet fs-5 me-2'></i>
                   <span className='fs-5'>Khalti</span>
                 </Link>
+
               </div>
             )}
 

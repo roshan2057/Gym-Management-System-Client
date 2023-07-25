@@ -34,14 +34,15 @@ function Khaltilist() {
     return (
         <div>
 
-            <h2 className='text-white fs-4'>Onile Transection</h2>
+            <h2 className='text-white fs-4'>Online Transection</h2>
 
             <table className="table table-striped bg-white rounded mt-5">
 
                 <thead>
                     <tr>
-                        <th scope="col">User_id</th>
+                        <th scope="col">Membership Id</th>
                         <th scope="col">Package id</th>
+                        <th scope="col">Renew date</th>
                         <th scope="col">Expire date</th>
                         <th scope="col">Amount</th>
                     </tr>
@@ -52,6 +53,7 @@ function Khaltilist() {
                         (<tr key={index}>
                             <th scope="row">{item.user_id}</th>
                             <td>{item.package_id}</td>
+                            <td>{item.renew_date}</td>
                             <td>{item.expire_date}</td>
                             <td>Rs.{item.amount}</td>
                         </tr>
@@ -64,7 +66,7 @@ function Khaltilist() {
                         <td colSpan='4'></td>
                     </tr>
                     <tr>
-                        <td colSpan='3' className='text-center'>Total:</td>
+                        <td colSpan='4' className='text-center'>Total:</td>
                         <td>Rs.{total}</td>
                     </tr>
 
