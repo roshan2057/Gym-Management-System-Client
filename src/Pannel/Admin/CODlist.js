@@ -26,7 +26,7 @@ function CODlist() {
     const calculateTotal = (statement) => {
         let totalAmount = 0;
         statement.forEach(item => {
-            if(item.status !== 'Pending'){
+            if (item.status !== 'Pending') {
                 totalAmount += item.amount;
 
             }
@@ -34,23 +34,34 @@ function CODlist() {
         setTotal(totalAmount);
     };
 
-    const accept=(id)=>{
-axios.get(`${process.env.REACT_APP_API}/admin/bill/cod/${id}`,{
-    headers:{
-        'auth':Cookies.get('token')
-    }
-}).then(res=>{
-    console.log(res)
-    window.location.reload();
+    const accept = (id) => {
+        axios.get(`${process.env.REACT_APP_API}/admin/bill/cod/${id}`, {
+            headers: {
+                'auth': Cookies.get('token')
+            }
+        }).then(res => {
+            console.log(res)
+            window.location.reload();
 
-}).catch(error=>{
-    console.log(error)
-})
+        }).catch(error => {
+            console.log(error)
+        })
     }
 
-const decline=(id)=>{
-console.log("decline"+id)
-}
+    const decline = (id) => {
+      
+        axios.delete(`${process.env.REACT_APP_API}/admin/bill/cod/${id}`,{
+            headers: {
+                'auth': Cookies.get('token')
+            }
+        }).then(res => {
+            console.log(res)
+            window.location.reload();
+
+        }).catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <div>
 
@@ -78,7 +89,7 @@ console.log("decline"+id)
                             <td>{item.expire_date}</td>
                             <td>Rs.{item.amount}</td>
                             {item.status === 'Pending' ? (<>
-                                <td className="text-center"><button onClick={()=>{accept(item.bid)}}>Accept</button> <button onClick={()=>{decline(item.bid)}}>Decline</button></td>
+                                <td className="text-center"><button onClick={() => { accept(item.bid) }}>Accept</button> <button onClick={() => { decline(item.bid) }}>Decline</button></td>
                             </>
 
 
