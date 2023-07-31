@@ -6,7 +6,7 @@ function Userpackage(props) {
    <>
     <h1 className='text-center text-white'>Package</h1>
 
-<table className="table table-striped bg-white rounded">
+<table className="table bg-transparent text-white rounded" border={'1'}>
 
 <thead>
 <tr>

@@ -19,7 +19,8 @@ function Slidebar() {
     setPaymentDropdownOpen(!isPaymentDropdownOpen);
   };
   return (
-    <div className='bg-white sidebar py-2'>
+    <div className='col-3 col-md-2 bg-transparent z-1 slidebar'>
+    <div className='sidebar'>
       <div className='m-2'>
         <i className='bi bi-universal-access-circle fs-4 me-2'></i>
         <span className='brand-name fs-4'>Shree Rhino Gym Center</span>
@@ -63,7 +64,7 @@ function Slidebar() {
 
                 <Link className='list-group-item py-2' to="/khalti">
                   <i className='bi bi-wallet fs-5 me-2'></i>
-                  <span className='fs-5'>Khalti</span>
+                  <span className='fs-5'>Online</span>
                 </Link>
 
               </div>
@@ -97,6 +98,7 @@ function Slidebar() {
         </Link>
       </div>
 
+    </div>
     </div>
   )
 }

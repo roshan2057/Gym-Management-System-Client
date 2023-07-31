@@ -45,9 +45,9 @@ axios.get(`${process.env.REACT_APP_API}/user/fee`,{
         
   return (
     <>
-    <div className='col-6'>
+    <div className='col-6 '>
             <h1 className='text-center text-white'>Fee Details</h1>
-          <table className="table bg-white" border="1">
+          <table className="table bg-transparent text-white " border="1">
               <tbody>
                 <tr>
                   <td>Name</td>

@@ -10,3 +10,26 @@ a{
     text-decoration: none;
     color: black;
 }
+.slidebar{
+    width: 20rem;
+    height: 100%;
+  }
+
+  .sidebar{
+    background-color: rgba(116, 116, 116, 0.6); 
+color: white;
+    position: fixed;
+    height: 100%;
+  }
+
+  .col{
+    width: 5rem;
+    height: 100vh;
+  }
+
+
+  .list-group a{
+    color: white;
+    background: transparent;
+  }
+  

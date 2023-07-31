@@ -36,7 +36,7 @@ axios.get(`${process.env.REACT_APP_API}/user/bmi`,{
    <>
     <h2 className='text-white'>Your Status</h2>
 
-<div className='p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded'>
+<div className='p-3 bg-transparent text-white border border-info shadow-sm d-flex justify-content-around align-items-center rounded '>
     <div className='d-flex flex-column'>
   <span>Height</span>   
   <span>Weight</span>

@@ -67,7 +67,9 @@ function Khalti(props) {
       'auth':Cookies.get('token')
     }
    }).then(res=>{
-    console.log(res);
+    alert("Please pay within 5 day from now Thanks!!");
+    window.location.reload();
+
    }).catch(error=>{
     console.log(error)
    })
@@ -91,9 +93,9 @@ function Khalti(props) {
     <div className='col-6'>
             <h1 className='text-center text-white'>Renew</h1>
 
-         <div className='bg-white rounded text-center w-75 p-4 m-auto'>
+         <div className='bg-transparent text-white border border-success rounded text-center w-75 p-4 m-auto'>
             <form>
-            <h3 className='text-center text-black'>Select Package</h3>
+            <h3 className='text-center text-white'>Select Package</h3>
 
                 <select className='m-2' id='package' onChange={(event)=>update(event.target.value)}>
 
@@ -105,7 +107,7 @@ function Khalti(props) {
                     }
                     
                 </select>
-            <h3 className='text-center text-black'>Payment method</h3>
+            <h3 className='text-center text-white'>Payment method</h3>
 <div className='d-flex mt-3'>
                 <button className='btn btn-success ' onClick={cod}>COD</button>
                 <button className='btn btn-success 'onClick={check}>Khalti</button>

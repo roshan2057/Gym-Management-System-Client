@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -36,17 +37,24 @@ function App() {
         return (
 
 
-            <div className='container-fluid bg-secondary min-vh-100'>
+            <div className='bg-secondary min-vh-50 my-0'>
                 <div className='row'>
-                    {toggle && <div className='col-3 col-md-2 bg-white vh-100 z-1 position-relative '>
+                    {toggle && 
                         <Slidebar />
 
-                    </div>}
+                   }
                     {/* {toggle && <div className='col-3 col-md-2'> heleo moter</div>}
                     */}
                     <div className='col'>
                         <Nav Toggle={Toggle} />
 
+                        <video className='video-bg' autoPlay muted loop>
+                            <source
+                                src='/video/background_video.mp4'
+                                type='video/mp4'
+                            />
+                            Your browser does not support the video tag.
+                        </video>
                         <Routes>
 
                             <Route path='/' element={<AdminElement> <Dashboard /> </AdminElement>}></Route>

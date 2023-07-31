@@ -37,7 +37,7 @@ axios.get(`${process.env.REACT_APP_API}/user/statement`,{
         
         <h2 className='text-white fs-4'>Statement</h2> 
 
-        <table className="table table-striped bg-white rounded mt-5">
+        <table className="table bg-transparent text-white rounded mt-5" border={'1'}>
 
   <thead>
     <tr>

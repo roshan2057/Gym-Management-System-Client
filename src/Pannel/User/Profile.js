@@ -56,7 +56,7 @@ setUser(res.data.data[0]);
 
 
   return (
-    <div className='bg-white p-3 rounded d-flex flex-wrap'>
+    <div className='main bg-transparent text-white border border-info p-3 rounded d-flex flex-wrap'>
       <Profiledetails data={user}/>
         
         <div className='bmi col-2'>

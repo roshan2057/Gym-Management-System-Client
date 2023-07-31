@@ -100,7 +100,7 @@ function Users() {
   <tbody>
 
 {
-  members.filter(item=>item.name.toLowerCase().includes(search)).map((item,  index)=>(
+  members.filter(item=> item.name.toLowerCase().includes(search) || item.id.toString().includes(search)).map((item,  index)=>(
     <tr key={index}>
     <th scope="row">{index+1}</th>
     <td>{item.name}</td>

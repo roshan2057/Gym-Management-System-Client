@@ -7,55 +7,102 @@ function Khaltilist() {
 
     const [datalist, setList] = useState([]);
     const [total, setTotal] = useState(0);
+    const [search, setSearch]=useState('');
+  
+    const [totalPages, setTotalpage] = useState('');
+    const [totalrecords, setTotalrecords] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [loading, setLoading] = useState(true);
+
+  
+    const handlePageChange = (pageNumber) => {
+      setCurrentPage(pageNumber);
+    };
+
 
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API}/admin/bill/online`, {
+        setLoading(true);
+
+        axios.get(`${process.env.REACT_APP_API}/admin/bill/online/${currentPage}`, {
             headers: {
                 'auth': Cookies.get('token')
             }
         }).then(res => {
-            if (res.data.success !== []) {
-                setList(res.data.success);
-                calculateTotal(res.data.success);
-            }
+            console.log(res.data.records)
+           setTotal(res.data.total_amount)
+           setTotalpage(res.data.total_pages)
+           setTotalrecords(res.data.total_records)
+                setList(res.data.records);
+                setLoading(false);
+            
         }).catch(error => {
             console.log(error)
         })
-    }, [])
-    const calculateTotal = (statement) => {
-        let totalAmount = 0;
-        statement.forEach(item => {
-            totalAmount += item.amount;
-        });
-        setTotal(totalAmount);
-    };
+    }, [currentPage])
+
+
+    const renderPaginationButtons = () => {
+        const buttons = [];
+        for (let i = 1; i <= totalPages; i++) {
+          buttons.push(
+            <button
+              key={i}
+              onClick={() => handlePageChange(i)}
+              style={{ fontWeight: currentPage === i ? 'bold' : 'normal' }}
+            >
+              {i}
+            </button>
+          );
+        }
+        return buttons;
+      };
+
 
     return (
         <div>
+            {loading ? 
+      <div class="position-absolute top-5 left-0 w-100 d-flex justify-content-center align-items-center bg-success bg-opacity-50 backdrop-blur">
+      <h2 class="text-white">Loading...</h2>
+    </div>
+        
+       : <>
+       
+     
+
 
             <h2 className='text-white fs-4'>Online Transection</h2>
+            <form className='text-right'>
+  <input className="bg-white text-center rounded-3 mb-0 w-25" placeholder='Search with idx or username...' type='text' onChange={(event)=>{setSearch(event.target.value)}}/>
+</form>
+
+<div>
+    PageNumber={currentPage}<br/>
+    Total records:{totalrecords}
+</div>
 
             <table className="table table-striped bg-white rounded mt-5">
 
                 <thead>
                     <tr>
-                        <th scope="col">Membership Id</th>
-                        <th scope="col">Package id</th>
-                        <th scope="col">Renew date</th>
-                        <th scope="col">Expire date</th>
+                        <th scope="col">Transection ID</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Method</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Created On</th>
                         <th scope="col">Amount</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        datalist.map((item, index) =>
+                        datalist.filter(item => item.user.idx.includes(search) || item.user.name.toLowerCase().includes(search)).map((item, index) =>
                         (<tr key={index}>
-                            <th scope="row">{item.user_id}</th>
-                            <td>{item.package_id}</td>
-                            <td>{item.renew_date}</td>
-                            <td>{item.expire_date}</td>
-                            <td>Rs.{item.amount}</td>
+                            <th scope="row">{item.user.idx}</th>
+                            <td>{item.user.name}</td>
+                            <td>{item.type.name}</td>
+                            <td>{item.state.name}</td>
+                            <td>{item.created_on.split('T')[0]}</td>
+                            <td>Rs.{item.amount/100}</td>
                         </tr>
                         )
                         )
@@ -72,7 +119,11 @@ function Khaltilist() {
 
                 </tbody>
             </table>
-
+            <div>
+{renderPaginationButtons()}
+</div>
+</>
+}
         </div>
     )
 }
