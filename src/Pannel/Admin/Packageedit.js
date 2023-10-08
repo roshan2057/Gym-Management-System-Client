@@ -12,13 +12,12 @@ function Packageedit() {
 const update=(event)=>{
   event.preventDefault();
   let data ={
-    "id":event.target.pac_id.value,
     "name":event.target.name.value,
-    "noofmonth":event.target.noofmth.value,
+    "num_months":event.target.noofmth.value,
     "price":event.target.price.value,
     "status":event.target.status.value
   }
-  axios.put(`${process.env.REACT_APP_API}/admin/package/${data.id}`,{
+  axios.put(`${process.env.REACT_APP_API}/admin/package/${event.target.pac_id.value}`,{
     headers:{
       'auth':Cookies.get('token')
     },

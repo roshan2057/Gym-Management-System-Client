@@ -23,6 +23,7 @@ const Resetpassword = () => {
             data
         }).then(res=>{
             console.log(res)
+            alert(res.data)
         }).catch(error=>{
             console.log(error);
         })

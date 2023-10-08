@@ -15,10 +15,11 @@ function CODlist() {
                 'auth': Cookies.get('token')
             }
         }).then(res => {
-            if (res.data.success !== []) {
+            console.log(res.data.success)
+           
                 setList(res.data.success);
                 calculateTotal(res.data.success);
-            }
+            
         }).catch(error => {
             console.log(error)
         })
@@ -67,13 +68,13 @@ function CODlist() {
 
             <h2 className='text-white fs-4'>Cash</h2>
 
-            <table className="table table-striped bg-white rounded mt-5">
+            <table className="table rounded mt-5">
 
                 <thead>
                     <tr>
                         <th scope="col">Request Date</th>
-                        <th scope="col">Membership ID</th>
-                        <th scope="col">Package id</th>
+                        <th scope="col">Member</th>
+                        <th scope="col">Package</th>
                         <th scope="col">Expire date</th>
                         <th scope="col">Amount</th>
                         <th scope="col" colSpan={2} className="text-center">Action</th>
@@ -84,18 +85,24 @@ function CODlist() {
                         datalist.map((item, index) =>
                         (<tr key={index}>
                             <td>{item.renew_date}</td>
-                            <td>{item.user_id}</td>
-                            <td>{item.package_id}</td>
+                            <td>{item.member.name}</td>
+                            <td>{item.package.name}</td>
                             <td>{item.expire_date}</td>
                             <td>Rs.{item.amount}</td>
+                            <td className="text-center">
+
+
                             {item.status === 'Pending' ? (<>
-                                <td className="text-center"><button onClick={() => { accept(item.bid) }}>Accept</button> <button onClick={() => { decline(item.bid) }}>Decline</button></td>
+                                <button onClick={() => { accept(item.bid) }}><i class="bi bi-check-lg"></i>Accept</button> <button onClick={() => { decline(item.bid) }}><i class="bi bi-trash"></i>Decline</button>
                             </>
 
 
                             ) : (
-                                <td className="text-center">Payment Done</td>
+                                <>Payment Done</>
                             )}
+
+                            </td>
+                           
                         </tr>
                         )
                         )
@@ -103,11 +110,11 @@ function CODlist() {
 
 
                     <tr>
-                        <td colSpan='4'></td>
+                        <td colSpan='6'></td>
                     </tr>
                     <tr>
                         <td colSpan='4' className='text-center'>Total:</td>
-                        <td>Rs.{total}</td>
+                        <td colSpan='2'>Rs.{total}</td>
                     </tr>
 
                 </tbody>

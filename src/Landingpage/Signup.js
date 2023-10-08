@@ -3,6 +3,8 @@ import React from 'react'
 
 function Signup() {
 
+
+
   const validation=(event)=>{
     event.preventDefault();
 
@@ -29,6 +31,19 @@ return alert("all field are required")
    else if(data.password !== data.cpassword){
       return alert("Password do not matched")
     }
+    else if (data.password.length < 8) {
+      return alert("Password must be at least 8 characters long");
+    }
+  //   else if(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(data.email)){
+  //   return alert("email not valid");
+  // }
+   else if (/\d/.test(data.name)) { // Check if name contains numbers
+      return alert("Name should not contain numbers");
+  }else if (!/^98\d{8}$/.test(data.phone)) { // Check phone number format
+        return alert("Phone number should start with '98' and be 10 characters long");
+    } else if(data.height >185 && data.height<147){
+      return alert("Invalid Height")
+    }
     else{
 
       register(data)
@@ -37,6 +52,10 @@ return alert("all field are required")
 
   }
  const register =(data)=>{
+
+  document.getElementById("loading").style.display = "block";
+
+
   const form = document.getElementById('register');
   axios.post(`${process.env.REACT_APP_API}/user/register`,{
     data
@@ -45,6 +64,10 @@ return alert("all field are required")
     if(res.status === 200){
       alert("Register Sucessfully and you id is"+res.data.id);
       form.reset();
+
+      document.getElementById("loading").style.display = "none";
+
+
     }
 
   }).catch(error=>{
@@ -53,6 +76,9 @@ return alert("all field are required")
   })
  }
   return (<>
+  <div className='position-absolute text-white w-100 text-center ' style={{ display: 'none' }} id='loading'>
+    <h1>loading........</h1>
+  </div>
   <div className='mx-5 '>
             <h1 className='text-white text-center'>Create an Account</h1>
             <form className='bg-white p-3 rounded' onSubmit={validation} id='register'>
@@ -81,12 +107,12 @@ return alert("all field are required")
                 <div className='col-md-4 mb-3'>
 
                 <label className='d-block' >Password</label>
-              <input className='d-block' type='text' name='password'/>
+              <input className='d-block' type='password' name='password'/>
                 </div>
 
                 <div className='col-md-4 mb-3'>
                 <label className='d-block' >Confirm Password</label>
-              <input className='d-block' type='text' name='cpassword'/>
+              <input className='d-block' type='password' name='cpassword'/>
                 </div>
               </div>
               <div className='form-row'>
@@ -99,12 +125,12 @@ return alert("all field are required")
 
               <div className='col-md-4 mb-2'>
                 <label className='d-block' >Height</label>
-              <input className='d-block' type='number' name='height' placeholder='KG'/>
+              <input className='d-block' type='number' name='height' placeholder='CM'/>
                 </div>
 
                 <div className='col-md-4 mb-2'>
                 <label className='d-block' >Weight</label>
-              <input className='d-block' type='number' name='weight' placeholder='CM'/>
+              <input className='d-block' type='number' name='weight' placeholder='KG'/>
                 </div>
            
                 </div>

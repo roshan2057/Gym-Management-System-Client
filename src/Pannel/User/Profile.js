@@ -16,7 +16,7 @@ function Profile() {
       }
     }).then(res=>{
       console.log(res)
-setUser(res.data.data[0]);
+setUser(res.data.data);
     }).catch(error=>{
       console.log(error)
     })
@@ -45,8 +45,9 @@ setUser(res.data.data[0]);
       }
     }).then(res=>{
       console.log(res)
-      if (res.status === 200){
-        alert("Update Success")
+      if (res){
+        console.log(res)
+        alert(res.data.data)
         form.reset();
       }
     }).catch(error=>{

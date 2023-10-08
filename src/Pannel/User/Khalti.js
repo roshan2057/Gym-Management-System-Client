@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import KhaltiCheckout from 'khalti-checkout-web'
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Esewa from './esewa'
 
 function Khalti(props) {
-  const [packid, setPackid]=useState(0);
+  const [packid, setPackid]=useState('0');
+  const [price, setPrice]=useState('0');
 
   const packdata = props.pack;
-  console.log(packdata);
 
     let config = {
         // replace this key with yours
@@ -47,7 +48,7 @@ function Khalti(props) {
 
     function check(event) {
       event.preventDefault();
-      if(packid === 0){
+      if(packid === '0'){
         return alert("Please select package")
       }
       checkout.show({amount:1000});
@@ -56,7 +57,7 @@ function Khalti(props) {
 
   function cod(event) {
     event.preventDefault();
-    if(packid === 0){
+    if(packid === '0'){
       return alert("Please select package")
     }
   const data={
@@ -75,15 +76,17 @@ function Khalti(props) {
    })
   }
 
-  const update=(id)=>{
+  const update=(id,price)=>{
     console.log(id)
+    console.log(price)
+    setPrice(price)
     setPackid(id);
   }
 
 
   function generateQR(event) {
     event.preventDefault();
-    if (packid === 0) {
+    if (packid === '0') {
       return alert('Please select a package');
     }
 
@@ -97,12 +100,12 @@ function Khalti(props) {
             <form>
             <h3 className='text-center text-white'>Select Package</h3>
 
-                <select className='m-2' id='package' onChange={(event)=>update(event.target.value)}>
+                <select className='m-2' id='package' onChange={(event)=>update(event.target.value, packdata[event.target.selectedIndex - 1].price)}>
 
-                    <option value={0}>Select</option>
+                    <option value={'0'}>Select</option>
                     {
                         packdata.map((item,index)=>(                          
-                            <option key={index} value={item.pac_id}>{item.name}</option>
+                            <option key={index} value={item.pac_id} data-price={item.price}>{item.name}</option>
                         ))
                     }
                     
@@ -110,8 +113,12 @@ function Khalti(props) {
             <h3 className='text-center text-white'>Payment method</h3>
 <div className='d-flex mt-3'>
                 <button className='btn btn-success ' onClick={cod}>COD</button>
-                <button className='btn btn-success 'onClick={check}>Khalti</button>
-                <button className='btn btn-success' onClick={generateQR}>Genereate QR</button>
+                <button className='btn btn-success 'onClick={check}><img src="https://seeklogo.com/images/K/khalti-logo-F0B049E67E-seeklogo.com.png" alt="Khalti Logo" width="60" height="20" />
+           </button>
+
+
+            {/* <Esewa amount={price}/> */}
+                {/* <button className='btn btn-success' onClick={generateQR}>Genereate QR</button> */}
                 
 </div>
                

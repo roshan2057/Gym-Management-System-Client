@@ -39,10 +39,10 @@ function Profiledetails(props) {
             <label>Address</label>
             </div>
             <div className='right'>
-            <input type='text'  defaultValue={user.name} name='name' />
-            <input type='number'  defaultValue={user.phone} name='phone'/>
-            <input type='email'  defaultValue={user.email} name='email'/>    
-            <input type='text'  defaultValue={user.address} name='address'/>
+            <input type='text'  defaultValue={user.member_name} name='name' />
+            <input type='number'  defaultValue={user.member_phone} name='phone'/>
+            <input type='email'  defaultValue={user.member_email} name='email'/>    
+            <input type='text'  defaultValue={user.member_address} name='address'/>
             <input type='submit'  value={'Update'}/>
 
             </div>        

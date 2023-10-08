@@ -38,7 +38,7 @@ function Slidebar() {
               <span className='fs-5'>Packages</span>
             </Link>
             <Link className='list-group-item py-2' to="/user">
-              <i className='bi bi-people fs-5 me-2'></i>
+              <i className='bi bi-person-vcard fs-5 me-2'></i>
               <span className='fs-5'>Users</span>
             </Link>
 

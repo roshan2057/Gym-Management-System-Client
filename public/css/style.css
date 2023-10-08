@@ -32,6 +32,17 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+:root {
+	--bs-table-bg: transparent; /* Change this to your desired background color */
+  }
+  
+  .dashboard{
+	background-color: rgba(116, 116, 116, 0.6); 
+	color: white;
+	box-shadow: 0 2px 4px rgba(49, 49, 49, 0.1); 
+  }
+
+
 html,
 body {
 	height: 100%;

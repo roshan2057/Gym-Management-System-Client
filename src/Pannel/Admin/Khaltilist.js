@@ -3,6 +3,7 @@ import Cookies from "js-cookie"
 import { useEffect, useState } from "react"
 
 
+
 function Khaltilist() {
 
     const [datalist, setList] = useState([]);
@@ -76,12 +77,12 @@ function Khaltilist() {
   <input className="bg-white text-center rounded-3 mb-0 w-25" placeholder='Search with idx or username...' type='text' onChange={(event)=>{setSearch(event.target.value)}}/>
 </form>
 
-<div>
+<div className="text-white">
     PageNumber={currentPage}<br/>
     Total records:{totalrecords}
 </div>
 
-            <table className="table table-striped bg-white rounded mt-5">
+<table className="table bg-transparent rounded mt-5">
 
                 <thead>
                     <tr>
@@ -110,10 +111,10 @@ function Khaltilist() {
 
 
                     <tr>
-                        <td colSpan='4'></td>
+                        <td colSpan='6'></td>
                     </tr>
                     <tr>
-                        <td colSpan='4' className='text-center'>Total:</td>
+                        <td colSpan='5' className='text-center'>Total:</td>
                         <td>Rs.{total}</td>
                     </tr>
 

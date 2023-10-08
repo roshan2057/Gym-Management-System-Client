@@ -12,8 +12,8 @@ axios.get(`${process.env.REACT_APP_API}/user/bmi`,{
     }
 }).then(res=>{
     console.log(res)
-    setUser(res.data[0])
-    setRemarks(calculateRemarks(res.data[0].bmi));
+    setUser(res.data)
+    setRemarks(calculateRemarks(res.data.bmi));
 }).catch(error=>{
     alert(error);
 })

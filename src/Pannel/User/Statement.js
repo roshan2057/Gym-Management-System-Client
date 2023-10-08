@@ -12,7 +12,7 @@ axios.get(`${process.env.REACT_APP_API}/user/statement`,{
     'auth':Cookies.get('token')
   }
 }).then(res=>{
-  if(res.data.statement !== []){
+  if(res.data.statement !== null){
 
   setStatement(res.data.statement);
     calculateTotal(res.data.statement);
@@ -44,6 +44,7 @@ axios.get(`${process.env.REACT_APP_API}/user/statement`,{
       <th scope="col">Date</th>
       <th scope="col">Packages</th>
       <th scope="col">Medium</th>
+      <th scope="col">Status</th>
       <th scope="col">Amount</th>
     </tr>
   </thead>
@@ -52,8 +53,9 @@ axios.get(`${process.env.REACT_APP_API}/user/statement`,{
 statement.map((item, index)=>
 ( <tr key={index}>
   <th scope="row">{item.renew_date}</th>
-  <td>{item.name}</td>
+  <td>{item.package.name}</td>
   <td>{item.medium}</td>
+  <td>{item.status}</td>
   <td>Rs.{item.amount}</td>
   </tr>
  )
@@ -61,10 +63,10 @@ statement.map((item, index)=>
  }
     
 <tr>
-    <td colSpan='4'></td>
+    <td colSpan='6'></td>
 </tr>
     <tr>
-        <td colSpan='3' className='text-center'>Total:</td>
+        <td colSpan='4' className='text-center'>Total:</td>
         <td>Rs.{total}</td>
     </tr>
    

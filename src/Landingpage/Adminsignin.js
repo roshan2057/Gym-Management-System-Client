@@ -26,12 +26,12 @@ function Adminsignin() {
           window.location.href = '/';
       }
       else {
-        alert("invalid");
+        alert(res.data.data);
       }
 
     }).catch(error => {
       console.log(error.response)
-      alert("Invalid");
+      alert(error.response.data.data);
     })
 
   }
@@ -46,7 +46,7 @@ function Adminsignin() {
               <label className='d-block'>Username</label>
               <input className='d-block' type='text' name='username' />
               <label className='d-block'>Password</label>
-              <input className='d-block' type='text' name='password' />
+              <input className='d-block' type='password' name='password' />
               <input className='d-block' type='submit' value='Sign In' />
             </form>
           </div>

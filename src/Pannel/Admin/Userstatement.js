@@ -20,10 +20,10 @@ axios.get(`${process.env.REACT_APP_API}/admin/userstatement/${id}`,{
     'auth':Cookies.get('token')
   }
 }).then(res=>{
-  if(res.data.success !== []){
-
-  setStatement(res.data.success);
-    calculateTotal(res.data.success);
+  console.log(res)
+  if(res.data.data !== null){
+  setStatement(res.data.data);
+    calculateTotal(res.data.data);
     console.log(res)
   }
   
@@ -50,7 +50,7 @@ axios.get(`${process.env.REACT_APP_API}/admin/userstatement/${id}`,{
   <thead>
     <tr>
       <th scope="col">Date</th>
-      <th scope="col">Package id</th>
+      <th scope="col">Package</th>
       <th scope="col">Medium</th>
       <th scope="col">Amount</th>
     </tr>
@@ -60,7 +60,7 @@ axios.get(`${process.env.REACT_APP_API}/admin/userstatement/${id}`,{
 statement.map((item, index)=>
 ( <tr key={index}>
   <th scope="row">{item.renew_date}</th>
-  <td>{item.package_id}</td>
+  <td>{item.package.name}</td>
   <td>{item.medium}</td>
   <td>Rs.{item.amount}</td>
   </tr>

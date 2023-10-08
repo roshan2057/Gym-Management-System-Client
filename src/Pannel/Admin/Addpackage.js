@@ -9,7 +9,7 @@ function Addpackage() {
 
     let data = {
       "name": event.target.name.value,
-      "noofmth": event.target.noofmth.value,
+      "num_months": event.target.noofmth.value,
       "price": event.target.price.value,
       "status": event.target.status.value
     }
