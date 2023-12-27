@@ -117,8 +117,8 @@ function Khalti(props) {
            </button>
 
 
-            {/* <Esewa amount={price}/> */}
-                {/* <button className='btn btn-success' onClick={generateQR}>Genereate QR</button> */}
+            <Esewa amount={price}/>
+                <button className='btn btn-success' onClick={generateQR}>Genereate QR</button>
                 
 </div>
                
