@@ -1,39 +1,32 @@
-import React from 'react'
+import React from "react";
 
 function Userpackage(props) {
-    const packdata = props.pack;
+  const packdata = props.pack;
   return (
-   <>
-    <h1 className='text-center text-white'>Package</h1>
-
-<table className="table bg-transparent text-white rounded" border={'1'}>
-
-<thead>
-<tr>
-<th scope="col">S.N</th>
-<th scope="col">Name</th>
-<th scope="col">N.of Months</th>
-<th scope="col">Amount</th>
-</tr>
-</thead>
-<tbody>
-    {
-        packdata.map((item, index)=>(
-           <tr key={index}>
-            <th scope="row">{index+1}</th>
-            <td>{item.name}</td>
-            <td className='text-center'>{item.num_months}</td>
-            <td>Rs.{item.price}</td>
+    <>
+      <h1 className="text-center text-white">Package</h1>
+      <table className="table bg-transparent text-white rounded" border={"1"}>
+        <thead>
+          <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Name</th>
+            <th scope="col">N.of Months</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {packdata.map((item, index) => (
+            <tr key={index}>
+              <th scope="row">{index + 1}</th>
+              <td>{item.name}</td>
+              <td className="text-center">{item.num_months}</td>
+              <td>Rs.{item.price}</td>
             </tr>
-        ))
-    }
-
-
-
-</tbody>
-</table>
-   </>
-  )
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
 }
 
-export default Userpackage
+export default Userpackage;

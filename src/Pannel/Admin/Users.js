@@ -4,25 +4,30 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import MyModal from "./Sendmainmodal";
+import Loading from "../../Loading";
 function Users() {
   const [members, setMembers] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`${process.env.REACT_APP_API}/admin/members`)
       .then((res) => {
         console.log(res.data.data);
         const pdata = res.data.data;
         setMembers(pdata);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   }, []);
 
-
   const remove = (id) => {
+    setLoading(true);
     axios
       .delete(`${process.env.REACT_APP_API}/admin/deletemember/${id}`, {
         headers: {
@@ -35,14 +40,17 @@ function Users() {
           alert(res.data.data);
           window.location.reload();
         }
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
 
   return (
     <div>
+      {loading && <Loading />}
       <h1 className="text-white fs-4">List of Members</h1>
       <form className="text-right">
         <input
@@ -104,24 +112,12 @@ function Users() {
                   </button>
                 </td>
                 <td>
-
-               
-      <MyModal email={item.email}/>
-  
-
-
-
-                  
+                  <MyModal email={item.email} />
                 </td>
               </tr>
             ))}
         </tbody>
       </table>
-
-
-
-
-      
     </div>
   );
 }

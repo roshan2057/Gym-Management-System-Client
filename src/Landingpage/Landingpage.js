@@ -49,7 +49,7 @@ function Landingpage() {
                 </div>
             </section>
 
-            <section className="choseus-section spad">
+            {/* <section className="choseus-section spad">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -291,7 +291,7 @@ function Landingpage() {
                         <input type="text" id="search-input" placeholder="Search here....." />
                     </form>
                 </div>
-            </div>
+            </div> */}
 
 
 

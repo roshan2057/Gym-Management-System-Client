@@ -1,15 +1,18 @@
 import axios from "axios"
 import Cookies from "js-cookie"
 import { useEffect, useState } from "react"
+import Loading from "../../Loading";
 
 
 function CODlist() {
 
     const [datalist, setList] = useState([]);
     const [total, setTotal] = useState(0);
+    const [loading,setLoading]=useState(false)
 
 
     useEffect(() => {
+        setLoading(true)
         axios.get(`${process.env.REACT_APP_API}/admin/bill/cod`, {
             headers: {
                 'auth': Cookies.get('token')
@@ -19,9 +22,10 @@ function CODlist() {
            
                 setList(res.data.success);
                 calculateTotal(res.data.success);
-            
+            setLoading(false);
         }).catch(error => {
             console.log(error)
+            setLoading(false);
         })
     }, [])
     const calculateTotal = (statement) => {
@@ -36,6 +40,7 @@ function CODlist() {
     };
 
     const accept = (id) => {
+        setLoading(true)
         axios.get(`${process.env.REACT_APP_API}/admin/bill/cod/${id}`, {
             headers: {
                 'auth': Cookies.get('token')
@@ -43,14 +48,16 @@ function CODlist() {
         }).then(res => {
             console.log(res)
             window.location.reload();
+            setLoading(false)
 
         }).catch(error => {
             console.log(error)
+            setLoading(false)
         })
     }
 
     const decline = (id) => {
-      
+      setLoading(true)
         axios.delete(`${process.env.REACT_APP_API}/admin/bill/cod/${id}`,{
             headers: {
                 'auth': Cookies.get('token')
@@ -58,18 +65,18 @@ function CODlist() {
         }).then(res => {
             console.log(res)
             window.location.reload();
+            setLoading(false)
 
         }).catch(error => {
             console.log(error)
+            setLoading(false)
         })
     }
     return (
         <div>
-
+            { loading && <Loading/>}
             <h2 className='text-white fs-4'>Cash</h2>
-
             <table className="table rounded mt-5">
-
                 <thead>
                     <tr>
                         <th scope="col">Request Date</th>

@@ -1,14 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Ponlinelist(props) {
   const packdata = props.pack;
   return (
     <div>
-
-
       <table className="table table-striped bg-white rounded">
-
         <thead>
           <tr>
             <th scope="col">S.N</th>
@@ -20,26 +17,28 @@ function Ponlinelist(props) {
           </tr>
         </thead>
         <tbody>
-          {
-            packdata.map((data, index) => (
-              <tr key={index}>
-                <th scope="row">{index + 1}</th>
-                <td>{data.name}</td>
-                <td className='text-center'>{data.num_months}</td>
-                <td>Rs.{data.price}</td>
-                <td className='text-success'>Online</td>
-                <td>
-                  <Link to={{
-                    pathname: `/package/${JSON.stringify(data)}`
-                  }}>Edit</Link>
-                </td>
-              </tr>
-            ))
-          }
+          {packdata.map((data, index) => (
+            <tr key={index}>
+              <th scope="row">{index + 1}</th>
+              <td>{data.name}</td>
+              <td className="text-center">{data.num_months}</td>
+              <td>Rs.{data.price}</td>
+              <td className="text-success">Online</td>
+              <td>
+                <Link
+                  to={{
+                    pathname: `/package/${JSON.stringify(data)}`,
+                  }}
+                >
+                  Edit
+                </Link>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
-export default Ponlinelist
+export default Ponlinelist;

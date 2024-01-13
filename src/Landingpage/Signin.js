@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signin.css";
 import Cookies from "js-cookie";
 import Signup from "./Signup";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
 
 function Signin() {
+
+  const [loading ,setLoading] = useState(false);
+
+
   const login = (event) => {
+
     event.preventDefault();
     const phone = event.target.phone.value;
     const password = event.target.password.value;
     if (!phone || !password === null) {
       return alert("Field required");
     }
+    setLoading(true);
 
     axios
       .post(`${process.env.REACT_APP_API}/user/login`, {
@@ -24,20 +31,21 @@ function Signin() {
         if (res.data.token) {
           Cookies.set("token", res.data.token);
           Cookies.set("type", res.data.user);
-
           window.location.href = "/home";
         } else {
           alert("no data");
         }
+        setLoading(false);
       })
       .catch((error) => {
-        console.log(error.response);
-        alert(error.response.data.data);
+        console.error(error);
+        setLoading(false);
       });
   };
 
   return (
     <>
+    {loading && (<Loading/>)}
       <div
         className="container-fluid h-100 position-absolute"
         style={{ backgroundImage: "url(img/hero/hero-2.jpg)" }}
