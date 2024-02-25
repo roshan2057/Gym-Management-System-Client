@@ -38,8 +38,9 @@ function Signin() {
         setLoading(false);
       })
       .catch((error) => {
-        console.error(error);
         setLoading(false);
+        console.error(error);
+        alert(error.response.data.data);
       });
   };
 

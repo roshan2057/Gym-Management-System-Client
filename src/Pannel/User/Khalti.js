@@ -14,8 +14,9 @@ function Khalti(props) {
 
   let config = {
     // replace this key with yours
-    publicKey: "test_public_key_99697f8fd7fc41e8b922cb5f84cf4e82",
+    "publicKey": "test_public_key_99697f8fd7fc41e8b922cb5f84cf4e82",
     // "productIdentity": userid,
+    // publicKey: `${process.env.REACT_APP_khaltikey}`,
     productIdentity: packid,
     productName: "khalit",
     productUrl: "http://gameofthrones.com/buy/Dragons",
