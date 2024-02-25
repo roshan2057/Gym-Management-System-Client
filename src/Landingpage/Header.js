@@ -20,6 +20,7 @@ function Header() {
                                     <li><Link to={'/'}>Home</Link></li>
                                     
                                     <li><Link to={'/login'}>Login/Register</Link></li>
+                                    <li><Link to={'/admin/login'}>Admin/Login</Link></li>
 
                                 </ul>
                             </nav>
